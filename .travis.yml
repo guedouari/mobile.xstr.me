@@ -22,9 +22,9 @@ before_install:
   - npm i -g cordova
 script:
   - cordova platform add android
-  - cordova build android --release -- --gradleArg=-PcdvMinSdkVersion=19
+  - cordova build android -- --gradleArg=-PcdvMinSdkVersion=19
 before_deploy:
-  - cp platforms/android/build/outputs/apk/android-release-unsigned.apk xstrme-android-${TRAVIS_BRANCH}.apk
+  - cp platforms/android/build/outputs/apk/android-debug.apk xstrme-android-${TRAVIS_BRANCH}.apk
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
