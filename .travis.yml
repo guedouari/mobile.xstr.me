@@ -17,10 +17,12 @@ cache:
   directories:
      - ./node_modules
 before_install:
+  - nvm install 8
+  - nvm use 8
   - npm i -g cordova
+script:
   - npm i
   - cordova platform add android
-script:
   - cordova build android --release
 deploy:
   provider: releases
