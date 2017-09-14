@@ -1,10 +1,17 @@
-language:
-  - node_js
-  - android
+language: android
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+
+    # The BuildTools version used by your project
+    - build-tools-25.0.0
+
+    # The SDK version used to compile your project
+    - android-25
 node_js:
   - "8"
-android:
-  - android-22
 dist: trusty
 cache:
   directories:
@@ -14,12 +21,12 @@ before_install:
   - npm i
   - cordova platform add android
 script:
-  - cordova run android
+  - cordova build android --release
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file_glob: true
-  file: release-builds/xstrme-*.{tar.gz,zip}
+  file: platforms/android/build/outputs/apk/android-release-unsigned.apk
   skip_cleanup: true
   on:
     tags: true
