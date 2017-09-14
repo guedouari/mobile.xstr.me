@@ -1,0 +1,29 @@
+language:
+  - node_js
+  - android
+android:
+  - "8"
+node_js:
+  - android-18
+dist: trusty
+addons:
+  apt:
+    packages:
+    - wine
+cache:
+  directories:
+     - ./node_modules
+before_install:
+  - npm i -g cordova
+  - npm i
+  - cordova platform add android
+script:
+  - cordova run android
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file_glob: true
+  file: release-builds/xstrme-*.{tar.gz,zip}
+  skip_cleanup: true
+  on:
+    tags: true
