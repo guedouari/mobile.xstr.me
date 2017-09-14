@@ -1,15 +1,11 @@
 language:
   - node_js
   - android
-android:
-  - "8"
 node_js:
-  - android-18
+  - "8"
+android:
+  - android-22
 dist: trusty
-addons:
-  apt:
-    packages:
-    - wine
 cache:
   directories:
      - ./node_modules
