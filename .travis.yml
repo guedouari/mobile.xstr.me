@@ -22,7 +22,7 @@ before_install:
   - npm i -g cordova
 script:
   - cordova platform add android
-  - cordova build android --release
+  - cordova build android --release -- --gradleArg=-PcdvMinSdkVersion=19
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
