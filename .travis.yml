@@ -21,7 +21,6 @@ before_install:
   - nvm use 8
   - npm i -g cordova
 script:
-  - npm i
   - cordova platform add android
   - cordova build android --release
 deploy:
