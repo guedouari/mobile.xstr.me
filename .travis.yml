@@ -21,6 +21,7 @@ before_install:
   - nvm use 8
   - npm i -g cordova
 script:
+  - sh scripts/unpack-www.sh
   - cordova platform add android
   - cordova build android -- --gradleArg=-PcdvMinSdkVersion=19
 before_deploy:
