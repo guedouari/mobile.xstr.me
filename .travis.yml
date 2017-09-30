@@ -25,14 +25,7 @@ script:
   - cordova build android -- --gradleArg=-PcdvMinSdkVersion=19
 before_deploy:
   - cp platforms/android/build/outputs/apk/android-debug.apk xstrme-android-${TRAVIS_BRANCH}.apk
-  - cp platforms/android/build/outputs/apk/android-debug.apk gh-pages/xstr-android-latest.apk
 deploy:
-  - provider: pages
-    local_dir: gh-pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
-    on:
-      branch: master
   - provider: releases
     api_key: $GITHUB_TOKEN
     file_glob: true
